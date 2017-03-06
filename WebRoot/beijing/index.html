@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>我查系统</title>
+<link rel="stylesheet" href="css/jquery.fullPage.css">
+<link rel="Shortcut Icon" href="images/bitbug_favicon.ico" type="image/x-icon" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/jquery.fullPage.min.js"></script>
+<script src="http://cdn.staticfile.org/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script>
+$(function(){
+	$('#dowebok').fullpage({
+		sectionsColor: ['#29948f', '#333','#4BBFC3', '#7BAABE'],
+		anchors: ['page1', 'page2', 'page3', 'page4'],
+		menu: '#menu',
+		resize:false,
+		loopBottom:true,
+		afterLoad: function(anchorLink, index){
+			if(index == 3){
+				$('.about').find('h2').delay(500).animate({
+					left: '0'
+				}, 1500, 'easeOutBack');
+				$('.about').find('p').delay(1000).animate({
+					left: '0'
+				}, 1500, 'easeOutBack');
+
+				$('.about').find('img').fadeIn(2500);
+				$('.about').find('h3').fadeIn(3000);
+			}
+			if (index == 4) {
+				$('.section4').find('a').delay(500).animate({
+					right: '0'
+				}, 1500, 'easeOutBack');
+			}
+		}
+
+	});
+	setInterval(function(){
+        $.fn.fullpage.moveSlideRight();
+    },8000);
+});
+</script>
+</head>
+
+<body>
+<div id="menu">
+	<a href="#page1" class="img">
+		<h1 data-menuanchor="page1"><img src="images/96.png" height="50" width="50" alt="我查管理系统">
+		<span>WoCha</span>
+		</h1>
+	</a>
+	<ul>
+		<li data-menuanchor="page1"class="active">
+			<a href="#page1">首 页</a>
+			<div class="ease"></div>
+		</li>
+		<li data-menuanchor="page2">
+			<a href="#page2">简介</a>
+			<div class="ease"></div>
+		</li>
+		<li data-menuanchor="page3">
+			<a href="#page3">关于我们</a>
+			<div class="ease"></div>
+		</li>
+
+		<li data-menuanchor="page4">
+			<a href="#page4">下 载</a>
+			<div class="ease"></div>
+		</li>
+		<div class="clear"></div>
+	</ul>
+</div>
+<div id="dowebok">
+	<div class="section">
+		<div class="slide slide1">
+			<h2 class="title">我查管理系统</h2>
+			<h4 class="titleEng">WoCha</h4>
+			<img src="images/1.png" alt="我查手机系统" class="page1-box">
+			<p>高效办公工作，拒绝浪费时间</p>
+		</div>
+		<div class="slide slide2">
+			<h2 class="title">查看设备是否占用</h2>
+			<h4 class="titleEng">Browse Room Usage</h4>
+			<img src="images/2.gif" alt="查询" class="page1-box">
+			<p>扫描登入轻松简单</p>
+		</div>
+		<div class="slide slide3">
+			<h2 class="title">浙江万里学院电子信息学院开发</h2>
+			<h4 class="titleEng">Made In Wan Li</h4>
+			<img src="images/3.png" alt="查询" class="page1-box">
+			<p>Coryright 李仁豪 And 许智源</p>
+		</div>
+	</div>
+	<div class="section section22">
+		<div class="slide slide11">
+			<h2 class="title">Step 01</h2>
+			<h4 class="titleEng">打开我查，点击开始扫描</h4>
+			<img src="images/1.png" alt="我查手机系统" class="page1-box">
+		</div>
+		<div class="slide slide22">
+			<h2 class="title">Step 02</h2>
+			<h5 class="titleEng">扫描设备上的二维码,可进行登入(占用)空闲的设备,登出(离开)自己的设备,但无法登出别人的设备哦</h5>
+			<img src="images/1.gif" alt="查询" class="page1-box db_gif">
+		</div>
+		<div class="slide slide33">
+			<h2 class="title">Step 03</h2>
+			<h5 class="titleEng">可以查看所有设备的列表，也可以关注自己喜欢的设备，关注的设备将会在已关注设备中显示</h5>
+			<img src="images/3.gif"alt="查询" class="page1-box db_gif">
+		</div>
+	</div>
+	<div class="section about">
+		<h2 class="tit">关于我们</h2>
+		<p class="titEng">About Us</p>
+		<div class="img">
+			<div class="about_we">
+				<img src="images/ab1.png" alert="李仁豪" class="ab_rh" />
+				<div class="ab_assist">
+					<h3>姓名: 李仁豪</h3>
+					<h3>专业: 通信工程</h3>
+					<h3>技能: 安卓开发，后台编写</h3>
+				</div>
+			</div>
+			
+			<div class="about_we">
+				<img src="images/ab2.png" alert="许智源" class="ab_zy" />
+				<div class="ab_assist">
+					<h3>姓名: 许智源</h3>
+					<h3>专业: 通信工程</h3>
+					<h3>技能: web开发，UI设计</h3>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="section section4">
+		<a href="app/Register.apk" class="dowlond" target="_blank">点击下载</a>
+		<div class="copyright">
+			<p>版权所有 &copy; 2015 | Zhiyuan | 浙ICP备15040022号</p>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	*{padding:0;margin:0}
+	html{overflow:hidden}
+	
+</style>
+</head>
+<body>
+    <canvas id="canvas" style="background:#111"></canvas>
+
+
+<script type="text/javascript">
+window.onload=function(){
+	//获取画布
+	var canvas = document.getElementById('canvas');
+	//画布环境
+	var context = canvas.getContext("2d");
+	//定义视窗宽度
+	var w =  window.innerWidth;
+	var h =  window.innerHeight;
+	//画布宽度
+	canvas.width = w;
+	canvas.height = h;
+	var fontsize = 14;
+	var colums = Math.floor(w/fontsize);
+	var str = "abou↓¤tlifei☆→hav●№anotse□◆↓ssio▲§nbu◇＆＼tij◎℃‰stdoit";
+	//绘画的方法
+
+	var dops = [];
+	for (var i = 0; i < colums; i++) {
+		dops.push(0);
+	}
+
+
+	function drwa(){
+		//设置字体
+		context.fillStyle = "rgba(0,0,0,0.05)";
+		context.fillRect(0,0,w,h);
+		context.font="700 "+fontsize+"px  微软雅黑";
+		
+		//设置颜色
+		context.fillStyle = "green";
+		for(var i=0;i<colums;i++){
+					var index = Math.floor(Math.random() * str.length);
+					var x = i*fontsize;
+					var y = dops[i] *fontsize;
+					context.fillText(str[index],x,y);
+					//如果要改变时间，肯定就是改变每次他的起点
+					if(y >= canvas.height && Math.random() > 0.9){
+						dops[i] = 0;
+					}
+					dops[i]++;
+				}
+
+		//cantext.arc(500,500,50,0,Math.PI*2);
+		//画圆
+		//cantext.fill();
+	}
+
+	/*function randColor(){
+				var r = Math.floor(Math.random() * 256);
+				var g = Math.floor(Math.random() * 256);
+				var b = Math.floor(Math.random() * 256);
+				return "rgb("+r+","+g+","+b+")";
+			}*/
+	
+	drwa();
+	setInterval(drwa,30);
+
+}
+
+
+
+
+</script>
+
+</body>
+</html>
